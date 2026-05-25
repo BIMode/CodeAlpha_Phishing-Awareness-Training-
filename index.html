@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phishing Awareness Training - Interactive cybersecurity presentation and training module. Learn to identify and avoid phishing attacks.">
+    <title>CyberGuard: Phishing Awareness Training</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cyber Security Grid / Particles Background -->
+    <div class="cyber-grid"></div>
+    <div class="glow-overlay"></div>
+
+    <!-- Presentation Dashboard Container -->
+    <div class="presentation-wrapper" id="presentation-container">
+        
+        <!-- Header HUD -->
+        <header class="hud-header">
+            <div class="hud-logo">
+                <i class="fa-solid fa-shield-halved neon-blue-glow"></i>
+                <span>CYBER<span class="highlight">GUARD</span></span>
+            </div>
+            <div class="hud-title" id="hud-slide-title">Threat Assessment Briefing</div>
+            <div class="hud-controls">
+                <button class="hud-btn" id="sound-toggle" title="Toggle Sound FX">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <button class="hud-btn" id="fullscreen-toggle" title="Toggle Fullscreen">
+                    <i class="fa-solid fa-expand"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Progress Tracker Bar -->
+        <div class="hud-progress-container">
+            <div class="hud-progress-bar" id="hud-progress-bar" style="width: 8.33%;"></div>
+        </div>
+
+        <!-- Slides Wrapper -->
+        <main class="slides-container" id="slides-container">
+
+            <!-- Slide 1: Welcome & Cover -->
+            <section class="slide active" id="slide-welcome" data-title="System Initialization">
+                <div class="welcome-content flex-row">
+                    <div class="welcome-text">
+                        <div class="cyber-badge"><i class="fa-solid fa-triangle-exclamation"></i> HIGH LEVEL SECURITY BRIEFING</div>
+                        <h1 class="slide-main-title">PHISHING <span class="gradient-text">AWARENESS</span> TRAINING</h1>
+                        <p class="slide-subtitle">Shielding Organizations Against Social Engineering & Digital Deception</p>
+                        <p class="welcome-desc">
+                            90% of all cyberattacks begin with a single spear-phishing email. Learn to recognize, analyze, and neutralize email threats before they compromise our security parameters.
+                        </p>
+                        <button class="btn btn-primary btn-glow" onclick="goToSlide(1)">
+                            <span>INITIALIZE BRIEFING</span> <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="welcome-visual">
+                        <div class="hero-image-wrapper">
+                            <img src="assets/images/cyber_security_shield.png" alt="Cyber Security Shield" class="hero-img">
+                            <div class="radar-scan"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: What is Phishing? -->
+            <section class="slide" id="slide-intro" data-title="Understanding the Threat">
+                <h2 class="slide-title">What is <span class="gradient-text">Phishing?</span></h2>
+                <div class="intro-grid">
+                    <div class="intro-left card">
+                        <div class="card-icon"><i class="fa-solid fa-fish"></i></div>
+                        <h3>The Attack Vector</h3>
+                        <p>
+                            <strong>Phishing</strong> is a form of social engineering where attackers impersonate trustworthy entities (banks, service providers, colleagues) via digital communication to manipulate victims into revealing sensitive information.
+                        </p>
+                        <div class="stat-box">
+                            <div class="stat-num glow-cyan-text">3.4B</div>
+                            <div class="stat-label">Phishing Emails Sent Daily Globally</div>
+                        </div>
+                    </div>
+
+                    <div class="intro-right card">
+                        <h3>Critical Objectives</h3>
+                        <p>Attackers construct phishing lures to bypass structural firewalls by targeting the human element. They seek to extract:</p>
+                        <ul class="cyber-list">
+                            <li><i class="fa-solid fa-key text-cyan"></i> <strong>User Credentials</strong> (Passwords, SSO tokens, security codes)</li>
+                            <li><i class="fa-solid fa-credit-card text-cyan"></i> <strong>Financial Assets</strong> (Credit card numbers, corporate bank info)</li>
+                            <li><i class="fa-solid fa-id-card text-cyan"></i> <strong>Personally Identifiable Information (PII)</strong></li>
+                            <li><i class="fa-solid fa-bug text-cyan"></i> <strong>System Entry</strong> (Installing malware, ransomware, or spyware)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- SVG Diagram representing Phishing Lifecycle -->
+                <div class="svg-diagram-container card">
+                    <h4>The Attack Lifecycle</h4>
+                    <div class="lifecycle-steps">
+                        <div class="step-card">
+                            <span class="step-number">01</span>
+                            <div class="step-icon"><i class="fa-solid fa-user-secret"></i></div>
+                            <h5>Lure Design</h5>
+                            <p>Attacker drafts email mimicking trusted company.</p>
+                        </div>
+                        <div class="step-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                        <div class="step-card">
+                            <span class="step-number">02</span>
+                            <div class="step-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                            <h5>Delivery</h5>
+                            <p>Email bypasses filter, landing in inbox.</p>
+                        </div>
+                        <div class="step-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                        <div class="step-card highlight-danger">
+                            <span class="step-number">03</span>
+                            <div class="step-icon"><i class="fa-solid fa-mouse-pointer"></i></div>
+                            <h5>Trigger (User)</h5>
+                            <p>Victim clicks link, inputs sensitive data.</p>
+                        </div>
+                        <div class="step-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                        <div class="step-card">
+                            <span class="step-number">04</span>
+                            <div class="step-icon"><i class="fa-solid fa-unlock-keyhole"></i></div>
+                            <h5>Exfiltration</h5>
+                            <p>Attacker steals credentials and invades networks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Types of Phishing -->
+            <section class="slide" id="slide-types" data-title="Phishing Taxonomy">
+                <h2 class="slide-title">Common <span class="gradient-text">Attack Variations</span></h2>
+                <p class="slide-desc">Phishing is not a single technique. Attackers modify their delivery vector depending on the target parameters.</p>
+                
+                <div class="types-grid">
+                    <!-- Spear Phishing -->
+                    <div class="type-card card" onclick="toggleTypeDetail(this)">
+                        <div class="card-header">
+                            <i class="fa-solid fa-crosshairs type-icon"></i>
+                            <h3>Spear Phishing</h3>
+                        </div>
+                        <p class="short-desc">Highly targeted attacks crafted for a specific individual or team.</p>
+                        <div class="detail-content">
+                            <p>Unlike broad campaigns, spear phishing relies on pre-attack reconnaissance. Attackers gather personal details from social media (LinkedIn, Twitter) to construct credible scenarios targeting your specific role, projects, or organization.</p>
+                            <span class="warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> High Risk: Extremely hard to spot.</span>
+                        </div>
+                        <span class="expand-btn">Read Deep Dive <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+
+                    <!-- Whaling -->
+                    <div class="type-card card" onclick="toggleTypeDetail(this)">
+                        <div class="card-header">
+                            <i class="fa-solid fa-crown type-icon"></i>
+                            <h3>Whaling</h3>
+                        </div>
+                        <p class="short-desc">Targets high-profile executives like CEOs, CFOs, or Board members.</p>
+                        <div class="detail-content">
+                            <p>Whaling attempts to extract large wire transfers, trade secrets, or high-privilege system keys. The emails mimic legal subpoenas, board complaints, or urgent industry regulatory threats requiring action from top leadership.</p>
+                            <span class="warning-tag"><i class="fa-solid fa-triangle-exclamation"></i> Financial Threat: Targets cash flow directly.</span>
+                        </div>
+                        <span class="expand-btn">Read Deep Dive <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+
+                    <!-- Smishing -->
+                    <div class="type-card card" onclick="toggleTypeDetail(this)">
+                        <div class="card-header">
+                            <i class="fa-solid fa-comment-sms type-icon"></i>
+                            <h3>Smishing (SMS)</h3>
+                        </div>
+                        <p class="short-desc">Phishing attacks performed via SMS / text messages.</p>
+                        <div class="detail-content">
+                            <p>Attackers send texts claiming you have a missed delivery package, unpaid toll bills, or a compromised bank account. Victims are pressured to click shortened links (`bit.ly`, `tinyurl`) which download malware or load spoofed credential sites on mobile screens.</p>
+                            <span class="warning-tag"><i class="fa-solid fa-mobile-screen"></i> Mobile Risk: Mobile browsers hide URL details.</span>
+                        </div>
+                        <span class="expand-btn">Read Deep Dive <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+
+                    <!-- Vishing -->
+                    <div class="type-card card" onclick="toggleTypeDetail(this)">
+                        <div class="card-header">
+                            <i class="fa-solid fa-phone-volume type-icon"></i>
+                            <h3>Vishing (Voice)</h3>
+                        </div>
+                        <p class="short-desc">Phishing conducted through voice phone calls.</p>
+                        <div class="detail-content">
+                            <p>Attackers use caller ID spoofing and synthetic AI voice cloning to impersonate IT support, banking fraud departments, or tax officers. They create intense urgency to extract verbal passwords, MFA codes, or access to your computer.</p>
+                            <span class="warning-tag"><i class="fa-solid fa-microphone"></i> AI Spoofing: Voice cloning makes verification harder.</span>
+                        </div>
+                        <span class="expand-btn">Read Deep Dive <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+
+                    <!-- Clone Phishing -->
+                    <div class="type-card card" onclick="toggleTypeDetail(this)">
+                        <div class="card-header">
+                            <i class="fa-solid fa-clone type-icon"></i>
+                            <h3>Clone Phishing</h3>
+                        </div>
+                        <p class="short-desc">Cloning a legitimate, previously sent email and swapping attachments or links.</p>
+                        <div class="detail-content">
+                            <p>The attacker intercepts or obtains a copy of a legitimate email with attachments or links. They create an almost identical duplicate, replacing the safe attachment with malware or editing the link, claiming it is an "updated version" or "resubmission".</p>
+                            <span class="warning-tag"><i class="fa-solid fa-shield-virus"></i> Trust Exploited: Leverages trust of real transactions.</span>
+                        </div>
+                        <span class="expand-btn">Read Deep Dive <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Anatomy of a Phishing Email -->
+            <section class="slide" id="slide-anatomy" data-title="Deconstructing the Email Lure">
+                <h2 class="slide-title">Anatomy of a <span class="gradient-text">Phishing Email</span></h2>
+                <p class="slide-desc">Hover or click on the interactive <span class="hotspot-highlight"><i class="fa-solid fa-circle-radiation"></i> red warning pulse areas</span> below to inspect the standard deception techniques.</p>
+
+                <!-- Interactive Email Mockup -->
+                <div class="email-mockup card">
+                    <div class="email-meta">
+                        <div class="meta-row">
+                            <span class="meta-label">From:</span>
+                            <span class="meta-val relative-position">
+                                Microsoft Support Team &lt;admin-update@sec-micro-login-auth.com&gt;
+                                <span class="email-hotspot" data-hotspot="sender">
+                                    <span class="hotspot-dot"></span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">To:</span>
+                            <span class="meta-val">employee-database@organization.com</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Subject:</span>
+                            <span class="meta-val text-bold relative-position">
+                                ACTION REQUIRED: Security Alert - Password Expiration Notice in 3 Hours!
+                                <span class="email-hotspot" data-hotspot="subject">
+                                    <span class="hotspot-dot"></span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="email-body">
+                        <p class="relative-position">
+                            Dear valued user,
+                            <span class="email-hotspot" data-hotspot="greeting">
+                                <span class="hotspot-dot"></span>
+                            </span>
+                        </p>
+                        <p>
+                            We detected a suspicious login attempt to your Microsoft 365 account from an unrecognized IP address (192.168.4.11). Due to organizational policies, your account has been locked.
+                        </p>
+                        <p class="relative-position">
+                            To unlock your corporate profile and restore file access, you must immediately verify your identity by logging into our secure cloud portal:
+                            <span class="email-hotspot" data-hotspot="urgency">
+                                <span class="hotspot-dot"></span>
+                            </span>
+                        </p>
+                        
+                        <div class="email-cta-box relative-position">
+                            <a href="#" class="btn btn-danger disabled-link" id="spoofed-link-hotspot">
+                                <i class="fa-solid fa-key"></i> Restore Credentials Now
+                            </a>
+                            <div class="link-tooltip" id="link-hover-tooltip">
+                                Link Destination: <code class="glow-crimson-text">http://portal-micro-verify.net/microsoft/login.php</code>
+                            </div>
+                            <span class="email-hotspot" data-hotspot="link">
+                                <span class="hotspot-dot"></span>
+                            </span>
+                        </div>
+
+                        <p>Failure to complete authorization within 3 hours will result in automatic directory account termination.</p>
+                        
+                        <div class="email-attachment relative-position">
+                            <div class="attachment-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                            <div class="attachment-info">
+                                <span class="attachment-name">Security_Log_Verification_Patch.pdf.exe</span>
+                                <span class="attachment-size">4.2 MB</span>
+                            </div>
+                            <span class="email-hotspot" data-hotspot="attachment">
+                                <span class="hotspot-dot"></span>
+                            </span>
+                        </div>
+
+                        <p class="email-sign">
+                            Sincerely,<br>
+                            Office Security Administration Department
+                        </p>
+                    </div>
+
+                    <!-- Hotspot Detail Panel -->
+                    <div class="hotspot-detail-panel" id="hotspot-detail-panel">
+                        <button class="close-panel-btn" onclick="closeHotspotPanel()">&times;</button>
+                        <h4 id="hotspot-title">Interactive Analysis Panel</h4>
+                        <p id="hotspot-description">Select a red glowing radar dot to examine potential threats in this message.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Fake Websites (Spoofing) -->
+            <section class="slide" id="slide-websites" data-title="Spoofed Portals">
+                <h2 class="slide-title">Identifying <span class="gradient-text">Fake Websites</span></h2>
+                <p class="slide-desc">Spoofing is the practice of cloning the look and feel of trusted websites to harvest input credentials.</p>
+
+                <div class="side-by-side-comparison">
+                    <!-- Real Website Box -->
+                    <div class="web-panel real-web card">
+                        <div class="web-header success-border">
+                            <span class="header-indicator legit"><i class="fa-solid fa-circle-check"></i> LEGITIMATE WEBSITE</span>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock text-green"></i>
+                                <span class="domain-text text-green">https://</span><span class="domain-text text-white">login.microsoftonline.com</span><span class="domain-path">/oauth2/authorize</span>
+                            </div>
+                        </div>
+                        <div class="web-preview-box">
+                            <div class="mock-microsoft-login">
+                                <img src="https://img.icons8.com/color/48/microsoft.png" alt="Microsoft Logo" class="brand-logo">
+                                <h3>Sign in</h3>
+                                <input type="email" placeholder="Email, phone, or Skype" disabled>
+                                <div class="mock-btn-row">
+                                    <button class="mock-btn-next" disabled>Next</button>
+                                </div>
+                            </div>
+                            <div class="analysis-tag text-green"><i class="fa-solid fa-circle-info"></i> Valid SSL certificate, official corporate root domain.</div>
+                        </div>
+                    </div>
+
+                    <!-- Spoofed Website Box -->
+                    <div class="web-panel spoofed-web card">
+                        <div class="web-header danger-border">
+                            <span class="header-indicator suspect"><i class="fa-solid fa-skull-crossbones"></i> MALICIOUS SPOOF</span>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-triangle-exclamation text-crimson"></i>
+                                <span class="domain-text text-crimson">http://</span><span class="domain-text text-crimson">login.micros0ft-online-verify.net</span><span class="domain-path">/oauth2</span>
+                            </div>
+                        </div>
+                        <div class="web-preview-box">
+                            <div class="mock-microsoft-login">
+                                <img src="https://img.icons8.com/color/48/microsoft.png" alt="Microsoft Logo" class="brand-logo">
+                                <h3>Sign in</h3>
+                                <input type="email" placeholder="Email, phone, or Skype" disabled>
+                                <div class="mock-btn-row">
+                                    <button class="mock-btn-next" disabled>Next</button>
+                                </div>
+                            </div>
+                            <div class="analysis-tag text-crimson"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Critical Threats detected:</strong>
+                                <ul>
+                                    <li>Insecure connection (<strong>HTTP</strong> instead of HTTPS)</li>
+                                    <li>Domain typosquatting (<strong>micros0ft</strong> with a '0' zero)</li>
+                                    <li>Suspicious suffix (<strong>-online-verify.net</strong>)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="website-tips-grid">
+                    <div class="tip-card card">
+                        <div class="tip-num">01</div>
+                        <h4>Inspect the Base Domain</h4>
+                        <p>Ensure the base domain strictly matches the official website (e.g. <code>paypal.com</code> NOT <code>paypal-security.com</code>).</p>
+                    </div>
+                    <div class="tip-card card">
+                        <div class="tip-num">02</div>
+                        <h4>Look for IDN Homograph Attacks</h4>
+                        <p>Attackers use international characters that look identical to standard letters (e.g., Cyrillic 'а' instead of Latin 'a') to trick filters and users.</p>
+                    </div>
+                    <div class="tip-card card">
+                        <div class="tip-num">03</div>
+                        <h4>Never Trust Aesthetics Alone</h4>
+                        <p>Modern browser cloning tools allow attackers to duplicate CSS templates in seconds. A beautiful interface does not equal safety.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Social Engineering Tactics -->
+            <section class="slide" id="slide-tactics" data-title="Psychological Triggers">
+                <h2 class="slide-title">Social Engineering <span class="gradient-text">Tactics</span></h2>
+                <p class="slide-desc">Phishing is not just a technology hack—it is a human psychology hack. Attackers use emotional triggers to bypass logical skepticism.</p>
+                
+                <div class="tactics-carousel">
+                    <!-- Tactic 1 -->
+                    <div class="tactic-slide card active-tactic" id="tactic-1">
+                        <div class="tactic-icon-box"><i class="fa-solid fa-clock"></i></div>
+                        <h3>1. Urgency & Panic</h3>
+                        <p class="tactic-subtitle">"Act within 24 hours or your accounts will be deleted!"</p>
+                        <p class="tactic-body">
+                            By placing strict time limits, attackers trigger cortisol responses in victims, forcing fast actions before rational cognitive evaluation takes place.
+                        </p>
+                    </div>
+                    
+                    <!-- Tactic 2 -->
+                    <div class="tactic-slide card" id="tactic-2">
+                        <div class="tactic-icon-box"><i class="fa-solid fa-gavel"></i></div>
+                        <h3>2. Authority & Fear</h3>
+                        <p class="tactic-subtitle">"This is IRS / Law Enforcement / Corporate Legal Service."</p>
+                        <p class="tactic-body">
+                            Impersonating figures of authority (CEOs, government agents, internal HR leaders) exploits our natural psychological tendency to comply with instructions to avoid punishment.
+                        </p>
+                    </div>
+
+                    <!-- Tactic 3 -->
+                    <div class="tactic-slide card" id="tactic-3">
+                        <div class="tactic-icon-box"><i class="fa-solid fa-gem"></i></div>
+                        <h3>3. Greed & Reward</h3>
+                        <p class="tactic-subtitle">"Congratulations! You won the company bonus/gift card."</p>
+                        <p class="tactic-body">
+                            Dangling monetary gains, free gifts, or exclusive system access appeals to excitement. Victims bypass security checks to claim the "reward."
+                        </p>
+                    </div>
+
+                    <!-- Tactic 4 -->
+                    <div class="tactic-slide card" id="tactic-4">
+                        <div class="tactic-icon-box"><i class="fa-solid fa-circle-question"></i></div>
+                        <h3>4. Curiosity & Intrigue</h3>
+                        <p class="tactic-subtitle">"View confidential leaked documents here."</p>
+                        <p class="tactic-body">
+                            Leverages natural curiosity. Using subjects like "Leaked payroll roster" or "Candid office pictures" baits employees into clicking files.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tactic-nav">
+                    <button class="btn btn-outline" id="prev-tactic-btn"><i class="fa-solid fa-chevron-left"></i> Previous Tactic</button>
+                    <div class="tactic-dots" id="tactic-dots-container"></div>
+                    <button class="btn btn-outline" id="next-tactic-btn">Next Tactic <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Interactive Activity (Spot the Phish) -->
+            <section class="slide" id="slide-activity" data-title="Spot the Phish Simulation">
+                <h2 class="slide-title">Interactive Challenge: <span class="gradient-text">Spot the Phish</span></h2>
+                <p class="slide-desc">Review the incoming inbox item below. Make an evaluation: Is it a <strong>Phish</strong> or is it <strong>Safe</strong>?</p>
+
+                <div class="simulation-workspace">
+                    <div class="sim-controls">
+                        <button class="sim-tab active" onclick="switchSimScenario(0)">Scenario 1: IT Helpdesk</button>
+                        <button class="sim-tab" onclick="switchSimScenario(1)">Scenario 2: Amazon Order Alert</button>
+                    </div>
+
+                    <!-- Scenario 1 Display -->
+                    <div class="sim-card card" id="sim-scenario-card">
+                        <div class="sim-inbox-header">
+                            <div><strong>From:</strong> <span id="sim-from">support@office-it-dept.com</span></div>
+                            <div><strong>Subject:</strong> <span id="sim-subject" class="text-bold">CRITICAL: Mandatory System Firmware Patch - Action Required</span></div>
+                            <div><strong>Date:</strong> <span>Today, 10:24 AM</span></div>
+                        </div>
+                        <div class="sim-inbox-body" id="sim-body">
+                            <p>Attention Team,</p>
+                            <p>Our internal firewall has flagged your account for security inconsistencies. To preserve network authentication access, you must update your security hardware profile by connecting to the corporate intranet gateway immediately.</p>
+                            <p>Click below to initialize verification:</p>
+                            <p><a href="#" class="sim-mock-link" id="sim-link">http://secure-lan-auth.net/system/update</a></p>
+                            <p>Failure to update within 1 hour will block all VPN connections to client systems.</p>
+                        </div>
+
+                        <!-- User Choice Buttons -->
+                        <div class="choice-actions-row">
+                            <button class="btn btn-success" onclick="evaluateChoice(true)" id="choice-btn-safe">
+                                <i class="fa-solid fa-shield-halved"></i> SAFE
+                            </button>
+                            <button class="btn btn-danger" onclick="evaluateChoice(false)" id="choice-btn-phish">
+                                <i class="fa-solid fa-skull-crossbones"></i> PHISHING
+                            </button>
+                        </div>
+
+                        <!-- Feedback Panel -->
+                        <div class="sim-feedback-panel" id="sim-feedback-panel" style="display: none;">
+                            <div class="feedback-icon" id="sim-feedback-icon"></div>
+                            <div class="feedback-text">
+                                <h4 id="sim-feedback-title">Result Title</h4>
+                                <p id="sim-feedback-description">Result explanation details will go here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Real World Case Studies -->
+            <section class="slide" id="slide-cases" data-title="Case Studies">
+                <h2 class="slide-title">Real-World <span class="gradient-text">Security Breaches</span></h2>
+                <p class="slide-desc">Phishing is not a theoretical hazard. These real incidents demonstrate the catastrophic costs of failed threat detection.</p>
+                
+                <div class="case-studies-grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-card card">
+                        <div class="case-header">
+                            <i class="fa-solid fa-building-columns case-icon"></i>
+                            <div class="case-meta">
+                                <h3>FACC CEO Impersonation</h3>
+                                <span class="cost-badge">$54 Million Lost</span>
+                            </div>
+                        </div>
+                        <p class="case-body">
+                            An aerospace component manufacturer fell victim to a Whaling attack. The attacker sent an email disguised as the company CEO, requesting an urgent wire transfer for a secret acquisition project. The transaction was approved and processed, leading to the CEO's termination.
+                        </p>
+                        <div class="case-lesson">
+                            <strong>Key Lesson:</strong> Establish strict out-of-band verification (like a phone call or face-to-face meet) for financial routing changes.
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="case-card card">
+                        <div class="case-header">
+                            <i class="fa-solid fa-film case-icon"></i>
+                            <div class="case-meta">
+                                <h3>Sony Pictures Breach</h3>
+                                <span class="cost-badge">100TB data leaked</span>
+                            </div>
+                        </div>
+                        <p class="case-body">
+                            Attackers targeted Sony executives with highly realistic Spear Phishing emails. Disguised as security warnings, the emails lured executives into inputting administrative login keys. The hackers gained access to servers, stealing unreleased movies and personal emails.
+                        </p>
+                        <div class="case-lesson">
+                            <strong>Key Lesson:</strong> Multi-Factor Authentication (MFA) must be mandated across all entry portals to stop stolen keys from working.
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div class="case-card card">
+                        <div class="case-header">
+                            <i class="fa-solid fa-store case-icon"></i>
+                            <div class="case-meta">
+                                <h3>Target HVAC Exploit</h3>
+                                <span class="cost-badge">40M Credit Cards Stolen</span>
+                            </div>
+                        </div>
+                        <p class="case-body">
+                            Attackers phished a third-party air conditioning (HVAC) vendor working with Target. Once the vendor's billing account was phished, attackers used those credentials to infiltrate Target’s internal network, pivot to the point-of-sale systems, and steal data.
+                        </p>
+                        <div class="case-lesson">
+                            <strong>Key Lesson:</strong> Supply chain risks are real. Segment networks so vendors cannot access sensitive customer databases.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Prevention & Best Practices -->
+            <section class="slide" id="slide-prevention" data-title="Best Practices">
+                <h2 class="slide-title">Prevention & <span class="gradient-text">Defense Strategies</span></h2>
+                <p class="slide-desc">Developing a strong human firewall is our most effective security line of defense. Remember these active protocols:</p>
+
+                <div class="prevention-grid">
+                    <div class="prev-item card">
+                        <div class="prev-icon-box bg-cyan-glow"><i class="fa-solid fa-fingerprint"></i></div>
+                        <h3>1. Mandate Multi-Factor (MFA)</h3>
+                        <p>MFA is the single most critical block. Even if attackers trick you into entering your password, they cannot gain entry without your physical device token.</p>
+                    </div>
+
+                    <div class="prev-item card">
+                        <div class="prev-icon-box bg-cyan-glow"><i class="fa-solid fa-mouse"></i></div>
+                        <h3>2. Hover Before Clicking</h3>
+                        <p>Hover your mouse over every link to view the actual destination URL in the status bar. If it doesn't match the company domain, don't click it.</p>
+                    </div>
+
+                    <div class="prev-item card">
+                        <div class="prev-icon-box bg-cyan-glow"><i class="fa-solid fa-phone"></i></div>
+                        <h3>3. Out-of-Band Verification</h3>
+                        <p>Received an urgent request for money or confidential files? Confirm it via an independent pathway. Call the sender on a known phone number.</p>
+                    </div>
+
+                    <div class="prev-item card">
+                        <div class="prev-icon-box bg-cyan-glow"><i class="fa-solid fa-shield-virus"></i></div>
+                        <h3>4. Avoid Public Workspaces</h3>
+                        <p>Never log into corporate portals using unencrypted public Wi-Fi networks. Attackers can execute man-in-the-middle exploits to steal keys.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Response Actions -->
+            <section class="slide" id="slide-response" data-title="Incident Response Plan">
+                <h2 class="slide-title">Emergency <span class="gradient-text">Response Actions</span></h2>
+                <p class="slide-desc">If you accidentally click a link or input credentials on a suspicious portal, time is your enemy. Follow this incident response protocol:</p>
+
+                <div class="response-timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-node card">
+                        <div class="node-number bg-crimson">01</div>
+                        <h3>Isolate the System</h3>
+                        <p>Disconnect your device from internet networks immediately. Unplug the Ethernet cable or turn off Wi-Fi to stop malware from contacting the attacker's server.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-node card">
+                        <div class="node-number bg-orange">02</div>
+                        <h3>Update Credentials</h3>
+                        <p>Use a separate, secure device to change the passwords of the compromised account. If you reuse that password elsewhere, change those passwords immediately.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-node card">
+                        <div class="node-number bg-blue">03</div>
+                        <h3>Alert IT Security</h3>
+                        <p>Report the incident to the Security Operations Center (SOC) or IT Helpdesk. Provide the phishing email headers, the spoofed URL, and the attachment details.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-node card">
+                        <div class="node-number bg-green">04</div>
+                        <h3>Monitor & Scan</h3>
+                        <p>Run a comprehensive antivirus scan on the isolated system. Check account activity logs for unauthorized logins or unexpected email forwarding rules.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Interactive Quiz -->
+            <section class="slide" id="slide-quiz" data-title="Interactive Assessment">
+                <h2 class="slide-title">Threat Assessment <span class="gradient-text">Quiz</span></h2>
+                <p class="slide-desc">Validate your threat identification capabilities. Answer the 10 questions below to calculate your score.</p>
+
+                <div class="quiz-container card">
+                    <div class="quiz-hud">
+                        <div class="quiz-hud-left">
+                            <span>Question: </span><span id="quiz-question-number" class="highlight">1/10</span>
+                        </div>
+                        <div class="quiz-hud-right">
+                            <span>Score: </span><span id="quiz-score-val" class="highlight">0%</span>
+                        </div>
+                    </div>
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-inner" id="quiz-progress-inner" style="width: 10%;"></div>
+                    </div>
+
+                    <!-- Current Question Panel -->
+                    <div class="quiz-main-panel">
+                        <h3 class="quiz-question" id="quiz-question-text">Question content will be loaded here.</h3>
+                        <div class="quiz-options-list" id="quiz-options-container">
+                            <!-- JS will inject options here -->
+                        </div>
+                    </div>
+
+                    <!-- Answer Feedback Overlay -->
+                    <div class="quiz-explanation-box" id="quiz-explanation-box" style="display: none;">
+                        <div class="explanation-icon" id="explanation-icon"></div>
+                        <div class="explanation-text">
+                            <h4 id="explanation-title">Correct!</h4>
+                            <p id="explanation-body">Explanation text here.</p>
+                        </div>
+                        <button class="btn btn-primary" id="quiz-next-btn" onclick="nextQuizQuestion()">
+                            Next Question <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 12: Certificate & Results -->
+            <section class="slide" id="slide-results" data-title="Briefing Completion">
+                <h2 class="slide-title">Briefing <span class="gradient-text">Complete</span></h2>
+                
+                <div class="results-layout flex-row">
+                    <!-- Circular Score Meter -->
+                    <div class="results-visual card">
+                        <div class="radial-score-container">
+                            <svg viewBox="0 0 100 100" class="radial-svg">
+                                <circle cx="50" cy="50" r="40" class="radial-track"></circle>
+                                <circle cx="50" cy="50" r="40" class="radial-progress" id="results-radial-progress"></circle>
+                            </svg>
+                            <div class="score-percentage-label">
+                                <span class="score-percent-num" id="score-percent-num">0%</span>
+                                <span class="score-sub-label">SCORE</span>
+                            </div>
+                        </div>
+                        <div class="badge-display">
+                            <div class="badge-icon-wrap" id="badge-icon-wrap">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <h3 id="results-rank-title">Security Recruit</h3>
+                        </div>
+                    </div>
+
+                    <!-- Certification details -->
+                    <div class="results-info card">
+                        <h3>Assessment Evaluation</h3>
+                        <p class="evaluation-message" id="results-evaluation-message">Calculating security readiness...</p>
+                        
+                        <div class="results-breakdown">
+                            <div class="breakdown-row">
+                                <span>Correct Answers:</span>
+                                <span id="results-correct-count" class="text-white text-bold">0 / 10</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Performance Rating:</span>
+                                <span id="results-performance-rating" class="highlight text-bold">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="certificate-watermark">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div class="action-buttons-row">
+                            <button class="btn btn-outline" onclick="restartBriefing()">
+                                <i class="fa-solid fa-rotate-left"></i> RETAKE MODULE
+                            </button>
+                            <button class="btn btn-primary btn-glow" onclick="window.print()">
+                                <i class="fa-solid fa-print"></i> PRINT RESULTS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Presentation Navigation HUD -->
+        <footer class="hud-footer">
+            <button class="hud-nav-btn" id="prev-slide-btn" onclick="prevSlide()" disabled>
+                <i class="fa-solid fa-circle-arrow-left"></i> <span>PREVIOUS</span>
+            </button>
+            <div class="hud-slide-tracker" id="hud-slide-tracker">
+                <!-- Navigation Dots dynamically loaded here -->
+            </div>
+            <button class="hud-nav-btn" id="next-slide-btn" onclick="nextSlide()">
+                <span>NEXT</span> <i class="fa-solid fa-circle-arrow-right"></i>
+            </button>
+        </footer>
+
+    </div>
+
+    <!-- Background Sound FX (Audios dynamically loaded or synthesized in Javascript) -->
+    <audio id="snd-click" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav"></audio>
+    <audio id="snd-correct" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-84.wav"></audio>
+    <audio id="snd-wrong" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/959/959-84.wav"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>

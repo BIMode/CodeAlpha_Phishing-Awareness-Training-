@@ -1,0 +1,21 @@
+{
+  "name": "phishing-awareness-training",
+  "version": "1.0.0",
+  "description": "Interactive cybersecurity presentation and phishing awareness training module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "http-server -p 3000"
+  },
+  "keywords": [
+    "cybersecurity",
+    "phishing",
+    "training",
+    "interactive",
+    "presentation"
+  ],
+  "author": "Antigravity",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
